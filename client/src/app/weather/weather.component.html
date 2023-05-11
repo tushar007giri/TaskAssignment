@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="weather.component.css">
+  <title>Weather App</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="app-main">
+      <div class="card">
+        
+          <form [formGroup]="myForm" (ngSubmit)="sendToAPI(myForm.value)">
+            <div class="form-group">
+              <input class="form-control" type="text" id="weatherLocation" aria-describedby="weatherLocation"
+                placeholder="Please input a Location And Then Press Enter" formControlName="cityName" />
+            </div>
+            
+              
+          </form>
+  
+        </div>
+        <div  *ngIf="check"class="weather-body">
+          <div class="location-details">
+            <div class="city" id="city">{{city}}  {{country}}</div>
+            <div class="date" id="date">10 June (Wednesday), 2020</div>
+          </div>
+  
+          <div class="weather-status">
+            <div class="temp" id="temp">{{temp}}&deg;C</div>
+            <div class="min-max" id="min-max">{{min}}&deg;C (min) / {{max}}&deg;C (max)</div>
+            <div class="weather" id="weather">{{status}}</div>
+            <div id="img"></div>
+          </div>
+        
+      </div>
+      
+     
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
+<router-outlet></router-outlet>
